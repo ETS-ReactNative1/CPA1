@@ -7,9 +7,9 @@ const MainPage = () =>{
     const navigation = useNavigation();
     const [uniName,setUniName] = useState(' Your University');
     return(
-        <View style = {styles.container}>
+        <ScrollView style = {styles.container}>
             <View style = {styles.header}>
-                {/* <Image style={{width: 100, height: 100}} source={require('../assets/favicon.png')}  /> */}
+                <Image style={{width: 100, height: 100}} source={require('../assets/AskAlumniLogo.jpeg')}  />
                 <Text style={styles.headerText}> 
                     AskAlumni
                 </Text>
@@ -23,33 +23,6 @@ const MainPage = () =>{
             </View>
 
             <View style = {styles.valuePropositionsContainer}>
-                {/* <ScrollView style={styles.scrollView}>
-                    <View style={styles.singleValueProp}>
-                        <Text style = {styles.valuePropositionsText}>
-                            1. Get Industry Relevant Tips
-                        </Text>
-                    </View>
-                    <View style={styles.singleValueProp}>
-                        <Text style = {styles.valuePropositionsText}>
-                            2. Discuss about vital skills
-                        </Text>
-                        <View style={styles.secondaryTextContainer}>
-                            <Text style={styles.secondaryText}>
-                                What courses should you be taking?
-                            </Text>
-                        </View>
-                    </View>
-                    <View style={styles.singleValueProp}>
-                        <Text style = {styles.valuePropositionsText}>
-                            3. Synchronous Chat
-                        </Text>
-                        <View style={styles.secondaryTextContainer}>
-                            <Text style={styles.secondaryText}>
-                                Get answers instantly
-                            </Text>
-                        </View>
-                    </View>
-                </ScrollView> */}
                 <View style={styles.singleValueProp}>
                     <Text style = {styles.valuePropositionsText}>
                         1. Get Industry Relevant Tips
@@ -85,7 +58,7 @@ const MainPage = () =>{
                         onPress={() => navigation.navigate('Online Alumni')}
                 />
             </View>
-        </View>
+        </ScrollView>
     );
 }
 
@@ -94,20 +67,16 @@ const MainPage = () =>{
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        // flexWrap:'wrap',
-        alignItems:'stretch',
-        justifyContent:'center',
-        // padding:5,
+        padding:5,
         backgroundColor:'crimson',
-        // overflow: 'visible',
     },
     
     header:{
         flex:1,
         alignItems: 'center',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         marginTop:"2%",
-        marginBottom:'5%'
+        // marginBottom:'5%'
     },
     headerText:{
         color:'white',
@@ -118,12 +87,12 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems: 'center',
         justifyContent: 'center',
-        // padding: '10%', 
+        padding: '2%', 
     },
     singleValueProp:{
         flex:1,
         // flexWrap:'wrap',
-        // margin:15,
+        margin:'2%',
         alignContent:'center',
         justifyContent:'center',
     },

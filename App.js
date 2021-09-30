@@ -33,24 +33,22 @@ const HomeScreen = ({ navigation }) => {
   return (
       <View style={styles.container}>
         <View style={{ flexDirection: 'row',
-                      // flexWrap:'wrap',
+                      flexWrap:'wrap',
                       // margin:"25%",
                       // border:"thick solid black",
-                      // padding:10,
+                      padding:5,
                       justifyContent: 'space-around',
                     }}>
           <Button
             title="Main Page"
             onPress={() =>
               navigation.navigate('Main Page')
-                // we're passing a parameter name:'Jane' to the Profile component!
             }
           />
           <Button
             title="Online Alumni"
             onPress={() =>
               navigation.navigate('Online Alumni')
-                // we're passing a parameter name:'Jane' to the Profile component!
             }
           />
 
@@ -70,7 +68,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'stretch',
-    justifyContent: 'center',
+    // alignItems: 'stretch',
+    // justifyContent: 'center',
   },
 });
