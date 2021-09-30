@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ddd',
         alignItems: 'stretch',
         // justifyContent: 'flex-start',
-        padding: '5pt',
+        // padding: 5,
         // borderWidth: '2pt',
         // borderColor:'pink',
       },
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'center',
         // margin: '100pt',
-        margin: '25pt'
+        margin: 25
     }
 
 });

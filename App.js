@@ -19,17 +19,11 @@ export default function App() {
          name = "main"
          component = {HomeScreen}
          options={{title: 'Main Page AskAlumni'}}
-         independent ={true}
         />
         <Stack.Screen name = "Main Page" component={MainPage} />
         <Stack.Screen name = "Online Alumni" component={HorizontalProfile} />
         <Stack.Screen name = "Settings" component={SettingsPage} />
       </Stack.Navigator>
-      {/* <MainPage />
-      <ProfileRow />
-      <SettingsPage /> */}
-      {/* <ProfileRow />
-      <ProfileRow /> */}
   </NavigationContainer>
 
   );
@@ -37,13 +31,14 @@ export default function App() {
 
 const HomeScreen = ({ navigation }) => {
   return (
-      <View>
+      <View style={styles.container}>
         <View style={{ flexDirection: 'row',
                       // flexWrap:'wrap',
-                      margin:"25pt",
-                      border:"thick solid black",
-                      padding:'10pt',
-                      justifyContent: 'space-around', }}>
+                      // margin:"25%",
+                      // border:"thick solid black",
+                      // padding:10,
+                      justifyContent: 'space-around',
+                    }}>
           <Button
             title="Main Page"
             onPress={() =>

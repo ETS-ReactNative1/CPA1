@@ -105,8 +105,8 @@ const styles = StyleSheet.create({
       backgroundColor:'lightgreen',      
       alignItems: 'center',    
       justifyContent: 'center',
-      padding: '50pt',
-      margin: '25pt',
+      padding: 50,
+      margin: 25,
       // borderWidth: '2pt',
   },
   contactButton:{
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     backgroundColor: 'lightgreen',
-    padding: '30pt',
+    padding: 30,
 
   },   
   item: {

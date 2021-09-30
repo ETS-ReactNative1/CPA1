@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
-import {StyleSheet, Text, View, Button, Switch, Linking, Image, TextInput} from 'react-native';
+import {StyleSheet, Text, View, Button, ScrollView, Image, TextInput} from 'react-native';
 
-
+            //Try using scroll pane
 const MainPage = () =>{
     const navigation = useNavigation();
     const [uniName,setUniName] = useState(' Your University');
     return(
         <View style = {styles.container}>
             <View style = {styles.header}>
-                <Image style={{width: 100, height: 100}} source={require('../assets/favicon.png')}  />
+                {/* <Image style={{width: 100, height: 100}} source={require('../assets/favicon.png')}  /> */}
                 <Text style={styles.headerText}> 
                     AskAlumni
                 </Text>
@@ -21,7 +21,35 @@ const MainPage = () =>{
                 </Text>
                     
             </View>
+
             <View style = {styles.valuePropositionsContainer}>
+                {/* <ScrollView style={styles.scrollView}>
+                    <View style={styles.singleValueProp}>
+                        <Text style = {styles.valuePropositionsText}>
+                            1. Get Industry Relevant Tips
+                        </Text>
+                    </View>
+                    <View style={styles.singleValueProp}>
+                        <Text style = {styles.valuePropositionsText}>
+                            2. Discuss about vital skills
+                        </Text>
+                        <View style={styles.secondaryTextContainer}>
+                            <Text style={styles.secondaryText}>
+                                What courses should you be taking?
+                            </Text>
+                        </View>
+                    </View>
+                    <View style={styles.singleValueProp}>
+                        <Text style = {styles.valuePropositionsText}>
+                            3. Synchronous Chat
+                        </Text>
+                        <View style={styles.secondaryTextContainer}>
+                            <Text style={styles.secondaryText}>
+                                Get answers instantly
+                            </Text>
+                        </View>
+                    </View>
+                </ScrollView> */}
                 <View style={styles.singleValueProp}>
                     <Text style = {styles.valuePropositionsText}>
                         1. Get Industry Relevant Tips
@@ -67,17 +95,19 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         // flexWrap:'wrap',
-        alignItems:'center',
+        alignItems:'stretch',
         justifyContent:'center',
-        flexDirection:'column',
+        // padding:5,
         backgroundColor:'crimson',
-        overflow: 'visible',
+        // overflow: 'visible',
     },
+    
     header:{
         flex:1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop:'50px',
+        marginTop:"2%",
+        marginBottom:'5%'
     },
     headerText:{
         color:'white',
@@ -88,12 +118,12 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '10%', 
+        // padding: '10%', 
     },
     singleValueProp:{
         flex:1,
         // flexWrap:'wrap',
-        margin:15,
+        // margin:15,
         alignContent:'center',
         justifyContent:'center',
     },
@@ -105,8 +135,8 @@ const styles = StyleSheet.create({
     secondaryTextContainer:{
         flex:1,
         // flexWrap:'wrap',
-        marginTop:2,
-        marginBottom:1,
+        marginTop:'2%',
+        marginBottom:'1%',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -117,7 +147,7 @@ const styles = StyleSheet.create({
     },
     ctaContainer:{
         flex:1,
-        margin:' 15pt',
+        // margin:15,
         alignItems: 'center',
         justifyContent: 'center',
     },
