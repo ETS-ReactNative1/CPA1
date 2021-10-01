@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     },
     headerText:{
         color:'white',
-        fontFamily: "roboto condensed",
+        // fontFamily: "sans-serif",
         fontSize:64,
         textAlign:'center',
     },
