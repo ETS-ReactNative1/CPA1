@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
         justifyContent:"center",
     },
     textInputDesign:{
-        borderWidth:'5pt',
+        borderWidth:5,
         borderColor:'orange',
         backgroundColor: 'white',
         textAlign: 'center'
