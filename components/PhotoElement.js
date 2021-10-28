@@ -1,5 +1,4 @@
 import React from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {StyleSheet, Text, View, Image} from 'react-native';
 
 const PhotoElement = (props) =>{

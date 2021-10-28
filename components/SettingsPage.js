@@ -10,8 +10,7 @@ import * as ImagePicker from 'expo-image-picker';
 const Settings = () =>{
     const [isEnabled, setIsEnabled] = useState(false);
     const [edit,setEdit] = useState(false)
-    const [profileInfo, setProfileInfo] = useState({name: "" ,image: ""})
-    // const [profileInfo, setProfileInfo] = useState({image: null})
+    const [profileInfo, setProfileInfo] = useState({name: null ,image: null})
     const [profileName, setProfileName] = useState("empty")
     const [profileImage, setProfileImage] = useState("empty")
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -115,15 +114,9 @@ const Settings = () =>{
             {/* <NewImage /> */}
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Button title="Pick an image from camera roll" onPress={pickImage} />
-                        {/* {image && <Image source={{ uri: image }} style={{ width: 500, height: 500 }} />} */}
             </View>
-            {console.log("test test"+profileName)}
             <Button title="Save Profile" color="darkgreen" onPress={()=> {setEdit(false)
-                                                                        // setProfileImage(profileImage)
-
                                                                          const newProfileInfo = {name:profileName, image:profileImage}
-                                                                        // setProfileImage(profileImage) 
-                                                                        // const newProfileInfo = {profileName:profileName}
                                                                          setProfileInfo(newProfileInfo)
                                                                          storeData(newProfileInfo)}
                                                                         } 
@@ -155,19 +148,20 @@ const Settings = () =>{
                     </View>
 
                 </View>
-                <View style = {styles.innerSettingsContainer}>
-                    <View style={styles.mainSettingsContainer}>
-                        <Text style={styles.settingsText}>Change profile picture</Text>
-                    </View>
-                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                        <Button title="Pick an image from camera roll" onPress={pickImage} />
+                {/* <View style = {styles.innerSettingsContainer}> */}
+                    {/* <View style={styles.mainSettingsContainer}> */}
+                        {/* <Text style={styles.settingsText}>Change profile picture</Text> */}
+                    {/* </View> */}
+                    {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}> */}
+                        {/* <Button title="Pick an image from camera roll" onPress={pickImage} /> */}
                         {/* {image && <Image source={{ uri: image }} style={{ width: 500, height: 500 }} />} */}
-                    </View>
-                    <View style={styles.buttonContainer}>
+                    {/* </View>
+                    <View style={styles.buttonContainer}> */}
                         {/* <Button color='black' title="Upload New Image " /> */}
-                    </View>
+                    {/* </View> */}
 
-                </View>
+                {/* </View> */}
+                
                 <View style = {styles.exteriorSocialContainer}>
                     <Text style={styles.settingsText}>Connect to my socials</Text>
                         <View style={styles.socialContainer}>
