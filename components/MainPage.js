@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
 import {StyleSheet, Text, View, Button, ScrollView, Image, TextInput} from 'react-native';
+import VideoCall from './VideoCall'
 
-            //Try using scroll pane
+
 const MainPage = () =>{
     const navigation = useNavigation();
     const [uniName,setUniName] = useState(' Your University');

@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {StyleSheet, Text, View, Button } from 'react-native';
 import MainPage from './components/MainPage';
 // import ProfileRow from './components/ProfileRow';
+import VideoCall from './components/VideoCall'
 import HorizontalProfile from './components/HorizontalProfile'
 import SettingsPage from './components/SettingsPage';
 
@@ -23,6 +24,7 @@ export default function App() {
         <Stack.Screen name = "Main Page" component={MainPage} />
         <Stack.Screen name = "Online Alumni" component={HorizontalProfile} />
         <Stack.Screen name = "Settings" component={SettingsPage} />
+        <Stack.Screen name = "Video Call" component={VideoCall} />
       </Stack.Navigator>
   </NavigationContainer>
 
@@ -56,6 +58,12 @@ const HomeScreen = ({ navigation }) => {
             title="Checkout the Preferences!!"
             onPress={() =>
               navigation.navigate('Settings')
+            }
+          />
+          <Button
+            title="Video Call"
+            onPress={() =>
+              navigation.navigate('Video Call')
             }
           />
       </View>
