@@ -4,8 +4,8 @@ Elevator Pitch: Many students in universities are lost in the pathways they can 
 
 
 ![Screenshot](screenshot1.png)
-Developer Notes: Daily Library (Video Conferencing)
-			    React Native
-			    Social Buttons
-			    Expo Image Picker
+Developer Notes: Daily Library (Video Conferencing),
+			    React Native,
+			    Social Buttons,
+			    Expo Image Picker,
 			    Social Buttons
