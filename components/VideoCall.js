@@ -11,7 +11,7 @@ const VideoCall = () =>{
 
 
     let callFrame = DailyIframe.createFrame({
-        showLeaveButton: true,
+        showLeaveButton: true, //What happens when someone clicks the leave button
         iframeStyle: {
           position: 'fixed',
           border: 0,
@@ -22,7 +22,7 @@ const VideoCall = () =>{
         },
       });
     callFrame.join({ url: 'https://dialme.daily.co/uSvfkI0giyynCgK99JOF' });
-    
+
     return(
         <View style={styles.container}>
             {callFrame}

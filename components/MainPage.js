@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
 import {StyleSheet, Text, View, Button, ScrollView, Image, TextInput} from 'react-native';
-import VideoCall from './VideoCall'
 
 
 const MainPage = () =>{
