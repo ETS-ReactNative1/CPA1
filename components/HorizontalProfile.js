@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Button, Image, FlatList ,TextInput } from 'react-native';
 import OnlineStatus from './OnlineStatus'
-
-
-
+import { Rating } from "react-native-rating-element";
+import { Avatar, Badge,Icon, withBadge } from 'react-native-elements'
+import {useValue} from '../ValueContext';
 const DATA = [
   {
     id: '001',
@@ -14,7 +14,8 @@ const DATA = [
     graduationYear: '2023',
     qualification: 'Masters Computer Science',
     imageLink: require('../assets/CartoonImages/Malai.jpeg'),
-    online: true
+    online: "success",
+    rating:5,
   },
   {
     id: '002',
@@ -24,7 +25,8 @@ const DATA = [
     graduationYear: '2021',
     qualification: 'Masters Computer Science',
     imageLink: require('../assets/CartoonImages/Girri.jpeg'),
-    online: false
+    online: "error",
+    rating:2,
   },
   {
     id: '003',
@@ -34,11 +36,12 @@ const DATA = [
     graduationYear: '2018',
     qualification: 'MD PHD in Bio-Chemistry',
     imageLink: require('../assets/CartoonImages/Rahm.jpeg'),
-    online: true
+    online: "success",
+    rating: 4,
   },
 ];
 
-const Item = ({name, passion, intrests, graduationYear,qualification,imageLink,online}) => (
+const Item = ({name, passion, intrests, graduationYear,qualification,imageLink,online,rating}) => (
   // <View style={styles.item}>
   //   <Text style={styles.title}>{name}</Text>
   //   <Text>{passion}</Text>
@@ -47,10 +50,34 @@ const Item = ({name, passion, intrests, graduationYear,qualification,imageLink,o
 
     <View style = {styles.innerContainer}>
       <View style = {styles.image}>
-        <Image style={{width: 100, height: 100}} source={imageLink} />
+        <View>
+          <Avatar
+            rounded
+            source={imageLink}
+            size="large"
+          />
+          <Badge
+            status={online}
+            containerStyle={{ position: 'absolute', top: -4, right: -4 }}
+          />
+
+
+        </View>
+        {/* <Image style={{width: 100, height: 100}} source={imageLink} /> */}
         
         <Text style={styles.nameText}>{name}</Text>
         <OnlineStatus online= {online} />
+        {/* <Rating type = "rocket" startingValue = {rating} readonly = {true} ratingColor='#fff' /> */}
+        <Rating
+          rated={rating}
+          totalCount={5}
+          ratingColor="darkgreen"
+          ratingBackgroundColor="#d4d4d4"
+          size={24}
+          readonly // by default is false
+          icon="rocket"
+          direction="row" // anyOf["row" (default), "row-reverse", "column", "column-reverse"]
+        />
       </View>
       <View style = {styles.detailsContainer}>
         <Text>Passion:{passion}</Text>
@@ -67,8 +94,9 @@ const Item = ({name, passion, intrests, graduationYear,qualification,imageLink,o
 );
 
 const ProfileRow = () => {
+  const {currentValue} = useValue();
   const renderItem = ({ item }) => (
-    <Item name={item.name} passion={item.passion} intrests={item.intrests} graduationYear={item.graduationYear} qualification={item.qualification} imageLink={item.imageLink} online ={item.online} />
+    <Item name={item.name} passion={item.passion} intrests={item.intrests} graduationYear={item.graduationYear} qualification={item.qualification} imageLink={item.imageLink} online ={item.online} rating = {item.rating} />
   );
   const [filteredName,setFilteredName] = useState("");
   const [filterName,setFilterName] = useState(false);
@@ -82,13 +110,13 @@ const ProfileRow = () => {
   //   filteredData = DATA
   // }
   if (filterOnline){
-    filteredData = (DATA.filter(item=>item.online==true))
+    filteredData = (DATA.filter(item=>item.online=="success"))
   }  else {
     filteredData = DATA
   }
   return (
     <View style={styles.container}>
-
+        <Text>Hello, {currentValue.name} </Text>
         <View style={styles.filterContainer}>
           {/* <Text>Filter by Alumni Name: </Text> */}
           {/* <TextInput placeholder='Filter by name' onChangeText={(text)=>setFilteredName(text)} />

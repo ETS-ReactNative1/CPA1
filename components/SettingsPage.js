@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect,useContext} from 'react';
 import { SocialIcon } from 'react-native-elements'
 import {StyleSheet, Text, View, Button, Switch, Linking, Platform} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -6,14 +6,16 @@ import PhotoElement from './PhotoElement';
 import { TextInput } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 // import NewImage from './NewImage';
-
+import {useValue} from '../ValueContext';
 const Settings = () =>{
     const [isEnabled, setIsEnabled] = useState(false);
     const [edit,setEdit] = useState(false)
     const [profileInfo, setProfileInfo] = useState({name: null ,image: null})
-    const [profileName, setProfileName] = useState("empty")
-    const [profileImage, setProfileImage] = useState("empty")
+    const [profileName, setProfileName] = useState("")
+    const {currentValue,setCurrentValue} = useValue()
+    const [profileImage, setProfileImage] = useState("")
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    
 
     // useEffect ( ()=>{
     //     getData(),
@@ -44,6 +46,7 @@ const Settings = () =>{
                 setProfileInfo(data)
                 setProfileName(data.name)
                 setProfileImage(data.image)
+                setCurrentValue({name:data.name})
                 console.log(data)
                 console.log("extracting earlier information")
             } else {
@@ -109,7 +112,7 @@ const Settings = () =>{
             {/* <PhotoElement imageLink= {profileInfo.profileImage} name={profileName} /> */}
             <PhotoElement imageLink= {profileInfo.image} name={profileInfo.name} />
             
-            <TextInput style={styles.textInputDesign} placeholder="New Profile Name" onChangeText ={(text)=> setProfileName(text)} />
+            <TextInput style={styles.textInputDesign} placeholder="New Profile Name" onChangeText ={(text)=> {setProfileName(text)}} />
             {console.log("Just saved your new profile Name: "+profileName)}
             {/* <NewImage /> */}
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -118,6 +121,7 @@ const Settings = () =>{
             <Button title="Save Profile" color="darkgreen" onPress={()=> {setEdit(false)
                                                                          const newProfileInfo = {name:profileName, image:profileImage}
                                                                          setProfileInfo(newProfileInfo)
+                                                                         setCurrentValue({name:profileName})
                                                                          storeData(newProfileInfo)}
                                                                         } 
             />

@@ -4,12 +4,17 @@ import DailyIframe from '@daily-co/daily-js';
 // let callFrame = DailyIframe.createFrame();
 
 // let callFrame = DailyIframe.wrap(MY_IFRAME);
+// import Daily from '@daily-co/react-native-daily-js';
+
 
 
 
 const VideoCall = () =>{
 
 
+    // Start joining a call
+    // const call = Daily.createCallObject();
+    // call.join({ url: 'https://dialme.daily.co/uSvfkI0giyynCgK99JOF' });
     let callFrame = DailyIframe.createFrame({
         showLeaveButton: true, //What happens when someone clicks the leave button
         iframeStyle: {

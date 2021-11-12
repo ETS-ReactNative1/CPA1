@@ -1,38 +1,28 @@
 import React from 'react';
 import { StyleSheet, Text, View} from 'react-native';
-import { Avatar, Badge, Icon, withBadge } from 'react-native-elements'
 
 
 const OnlineStatus = (props) =>{
     let isOnline = ""
     // if ({props.online} == true) {
     // function isOnline 
-    if (props.online == true) {
+    if (props.online == "success") {
         isOnline = 
-        <View style={styles.container}>
-            <Text>Online   </Text>
-            <Badge status="success" />
+        <View>
+
+            <View style={styles.container}>
+                <Text>Online   </Text>
+            </View>
         </View>
+
     } else {
         isOnline = 
         <View style={styles.container}>
 
             <Text>Offline    </Text>
-            <Badge status="error" />
         </View>
     }
-    // let isOnline = 
-    // <View style={styles.container}>
 
-    //     <Text>Offline    </Text>
-    //     <Badge status="error" />
-    // </View>
-    // let isOffline = 
-    // <View style={styles.container}>
-
-    //     <Text>Offline    </Text>
-    //     <Badge status="error" />
-    // </View>
     return(
         
         <View>

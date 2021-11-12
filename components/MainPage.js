@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
 import {StyleSheet, Text, View, Button, ScrollView, Image, TextInput} from 'react-native';
-
+import {useValue} from '../ValueContext';
 
 const MainPage = () =>{
     const navigation = useNavigation();
     const [uniName,setUniName] = useState(' Your University');
+    const {currentValue} = useValue();
     return(
         <ScrollView style = {styles.container}>
             <View style = {styles.header}>
@@ -51,7 +52,7 @@ const MainPage = () =>{
             </View>
             <View style={styles.ctaContainer}>
                 <Text style={styles.topTextInput}>
-                    Enter Your University:
+                {currentValue.name}, Enter Your University:
                 </Text>
                 <TextInput style={styles.placeholder} placeholder='University Name' textAlign='right' placeholderTextColor="red" onChangeText={text=>{setUniName(text)}} />
                 <Button title={`Contact Alumni from ${uniName} Today!` }
