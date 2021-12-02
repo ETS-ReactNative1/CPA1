@@ -15,14 +15,9 @@ const Settings = () =>{
     const {currentValue,setCurrentValue} = useValue()
     const [profileImage, setProfileImage] = useState("")
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-    
+    const [showOnline,setShowOnline] =useState(false)
 
-    // useEffect ( ()=>{
-    //     getData(),
-    //     getImageData(),
-    //     setEdit(false)
-    // }
-    // ,[])
+
 
     useEffect(() => {{ getData(),
                        setEdit(false),
@@ -99,8 +94,6 @@ const Settings = () =>{
     if (!edit) {
         editFeature = 
         <View style={styles.editProfileSection}>
-            {/* <PhotoElement imageLink= {require('../assets/CartoonImages/Malai.jpeg')} name={profileInfo.profileName} /> */}
-            {/* <PhotoElement imageLink= {profileInfo.profileImage} name={profileInfo.profileName} /> */}
             <PhotoElement imageLink= {profileInfo.image} name={profileInfo.name} />
             
             <Button title="Edit Profile" color="black" onPress={()=> setEdit(true)} />

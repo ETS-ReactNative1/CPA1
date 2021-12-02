@@ -1,6 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, Text, View, Button} from 'react-native';
 import DailyIframe from '@daily-co/daily-js';
+import DailyFrame from './DailyFrame'
+
 // let callFrame = DailyIframe.createFrame();
 
 // let callFrame = DailyIframe.wrap(MY_IFRAME);
@@ -11,26 +14,31 @@ import DailyIframe from '@daily-co/daily-js';
 
 const VideoCall = () =>{
 
+    const navigation = useNavigation();
 
-    // Start joining a call
-    // const call = Daily.createCallObject();
-    // call.join({ url: 'https://dialme.daily.co/uSvfkI0giyynCgK99JOF' });
-    let callFrame = DailyIframe.createFrame({
-        showLeaveButton: true, //What happens when someone clicks the leave button
-        iframeStyle: {
-          position: 'fixed',
-          border: 0,
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-        },
-      });
-    callFrame.join({ url: 'https://dialme.daily.co/uSvfkI0giyynCgK99JOF' });
+    // // Start joining a call
+    // // const call = Daily.createCallObject();
+    // // call.join({ url: 'https://dialme.daily.co/uSvfkI0giyynCgK99JOF' });
 
+    // let callFrame = DailyIframe.createFrame({
+    //     showLeaveButton: true, //What happens when someone clicks the leave button
+    //     // redirect_on_meeting_exit : navigation.navigate('Main Page'),
+    //     iframeStyle: {
+    //       position: 'fixed',
+    //       border: 0,
+    //       top: 25,
+    //       left: 25,
+    //       width: '100%',
+    //       height: '100%',
+    //     },
+    //   });
+    // let callFrameContainer= callFrame.join({ url: 'https://dialme.daily.co/uSvfkI0giyynCgK99JOF' });
     return(
         <View style={styles.container}>
-            {callFrame}
+          <Button title={`Return To Main Page` }
+          onPress={() => navigation.navigate('Main Page')}/>
+          <DailyFrame />
+ 
         </View>
     )
 }
@@ -41,7 +49,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
-      // alignItems: 'stretch',
+      alignItems: 'center',
       // justifyContent: 'center',
     },
   });

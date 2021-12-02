@@ -1,78 +1,47 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import 'react-native-gesture-handler';
+import { createDrawerNavigator,DrawerContentScrollView,DrawerItemList,DrawerItem, } from '@react-navigation/drawer';
 import {StyleSheet, Text, View, Button } from 'react-native';
 import MainPage from './components/MainPage';
-// import ProfileRow from './components/ProfileRow';
 import VideoCall from './components/VideoCall'
 import HorizontalProfile from './components/HorizontalProfile'
 import SettingsPage from './components/SettingsPage';
+import ProfilePage from './components/ProfilePage';
 import ValueProvider from './ValueContext';
 
-const Stack = createNativeStackNavigator();
 
+const Drawer = createDrawerNavigator();
 
-export default function App() {
-  const data = {name:"" }
+function MyDrawer() {
   return (
-    <ValueProvider value = {data}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-          name = "main"
-          component = {HomeScreen}
-          options={{title: 'Main Page AskAlumni'}}
-          />
+    <Drawer.Navigator>
+      <Drawer.Screen name = "Main Page" component={MainPage} />
+      <Drawer.Screen name = "Online Alumni" component={HorizontalProfile} />
+      <Drawer.Screen name = "Settings" component={SettingsPage} />
+      <Drawer.Screen name = "Video Call" component={VideoCall} />
+      <Drawer.Screen name = "Profile Page" component={ProfilePage} />
 
-            <Stack.Screen name = "Main Page" component={MainPage} />
-            <Stack.Screen name = "Online Alumni" component={HorizontalProfile} />
-            <Stack.Screen name = "Settings" component={SettingsPage} />
-            <Stack.Screen name = "Video Call" component={VideoCall} />
-
-
-        </Stack.Navigator>
-
-    </NavigationContainer>
-  </ValueProvider>
+    </Drawer.Navigator>
   );
 }
 
-const HomeScreen = ({ navigation }) => {
+export default function App() {
+  const data = {name:"",showOnline:"" }
   return (
-      <View style={styles.container}>
-        <View style={{ flexDirection: 'row',
-                      flexWrap:'wrap',
-                      // margin:"25%",
-                      // border:"thick solid black",
-                      padding:5,
-                      justifyContent: 'space-around',
-                    }}>
-          <Button
-            title="Main Page"
-            onPress={() =>
-              navigation.navigate('Main Page')
-            }
-          />
-          <Button
-            title="Online Alumni"
-            onPress={() =>
-              navigation.navigate('Online Alumni')
-            }
-          />
+    <ValueProvider value = {data}>
+    <NavigationContainer>
+      <MyDrawer />  
+    </NavigationContainer>
 
-          <Button
-            title="Checkout the Preferences!!"
-            onPress={() =>
-              navigation.navigate('Settings')
-            }
-          />
-          <Button
-            title="Video Call"
-            onPress={() =>
-              navigation.navigate('Video Call')
-            }
-          />
-      </View>
+  </ValueProvider>
+
+  );
+}
+
+const HomeScreen = () => {
+  return (   
+    <View style={styles.container}>
       <MainPage />
     </View>
   );
